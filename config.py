@@ -19,7 +19,6 @@ parser.add_argument('--model_path', type=str, default='checkpoints/model.pth')
 parser.add_argument('--results_path', type=str, default='results/results.csv')
 parser.add_argument('--checkpoints_folder', type=str, default='mmpk')
 
-
 # model
 parser.add_argument('--num_layers_mol', type=int, default=5)
 parser.add_argument('--d_mol', type=int, default=300)

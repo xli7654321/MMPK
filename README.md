@@ -54,7 +54,7 @@ Please select input mode [1: Manually, 2: CSV file] (default: 1):
 > 1
 
 Please enter SMILES (separated by commas):
-> Clc1cccc(Cl)c1NC1=NCCN1, NCC(CC(=O)O)c1ccc(Cl)cc1, 
+> Clc1cccc(Cl)c1NC1=NCCN1, NCC(CC(=O)O)c1ccc(Cl)cc1
 
 Please enter administered dose (separated by commas):
 > 0.1, 10

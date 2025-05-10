@@ -29,5 +29,3 @@ echo "Calculating 10-fold CV results..."
 RESULTS_FOLDER="results/$FOLDER/"
 python utils/calc_cv.py --folder_path $RESULTS_FOLDER
 echo "Done"
-
-# bash run.sh 0 mmpk "auc cmax tmax hl cl vz mrt f"
