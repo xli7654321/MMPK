@@ -49,11 +49,10 @@ if __name__ == '__main__':
     
     for fold in range(1, 11):
         model = MMPKPredictor(args, num_tasks=num_tasks)
-        model.to(device)
-    
         model_path = f"checkpoints/{args.checkpoints_folder}/fold_{fold}.pth"
         print(f"Loading MMPK model {fold} from checkpoints/{args.checkpoints_folder} for evaluation on external validation set...")
         model.load_state_dict(torch.load(model_path, map_location=device))
+        model.to(device)
         
         selector = DataLoaderSelector(fold, args.pk_params, load_ext=True)
         ext_invest_loader, ext_2024_loader = selector.select_loader(loader_type='ext')

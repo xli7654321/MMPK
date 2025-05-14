@@ -1,6 +1,7 @@
 import os
 import time
 from pathlib import Path
+from decimal import Decimal, ROUND_HALF_UP
 import torch
 import pandas as pd
 from config import args
@@ -9,6 +10,10 @@ from mmpk import MMPKPredictor
 from utils import *
 
 TASKS = [param for param in args.pk_params]
+
+def round_value(values, digits=2):
+    fmt = '0.' + '0' * digits
+    return [float(Decimal(str(v)).quantize(Decimal(fmt), rounding=ROUND_HALF_UP)) for v in values]
 
 def test(model, loader, device):
     model.eval()
@@ -134,11 +139,10 @@ if __name__ == '__main__':
     
     for fold in range(1, 11):
         model = MMPKPredictor(args, num_tasks=num_tasks)
-        model.to(device)
-    
         model_path = f"checkpoints/{args.checkpoints_folder}/fold_{fold}.pth"
         print(f"Loading MMPK model {fold} from checkpoints/{args.checkpoints_folder} for new prediction...")
         model.load_state_dict(torch.load(model_path, map_location=device))
+        model.to(device)
         
         loader = MMPKPredictLoader(smi_list, doses, dose_unit, standardize_smi).get_loader()
         
@@ -154,7 +158,7 @@ if __name__ == '__main__':
                     'fold': fold,
                     'smiles': info['smiles'],
                     'dose': info['dose'],
-                    'sub_index': sub['sub_index'],
+                    'sub_index': sub['sub_index'] + 1,
                     'sub_smiles': sub['sub_smiles'],
                     'sub_score': sub['sub_score']
                 })
@@ -174,7 +178,7 @@ if __name__ == '__main__':
         
         pred_df[f"{task}_log"] = merged_df.mean(axis=1)
         y_hat_orig = back_transform_predict(y_hat_log=pred_df[f"{task}_log"], pk_param=task)
-        pred_df[task] = y_hat_orig.round(3)
+        pred_df[task] = round_value(y_hat_orig, digits=2)
     
     # show log and original prediction
     task_cols = TASKS
@@ -215,15 +219,14 @@ if __name__ == '__main__':
     df_att = pd.DataFrame(att_pred)
     df_att_mean = (
         df_att
-        .groupby(['smiles', 'dose', 'sub_index', 'sub_smiles'], as_index=False)
+        .groupby(['smiles', 'sub_index', 'sub_smiles'], as_index=False)
         ['sub_score']
         .mean()
     )
-    df_att_mean['sub_score'] = df_att_mean['sub_score'].round(3)
+    df_att_mean['sub_score'] = round_value(df_att_mean['sub_score'], digits=3)
     
     att_col_mapping = {
         'smiles': 'SMILES',
-        'dose': f"Dose [{dose_unit}]",
         'sub_index': 'Substructure Index',
         'sub_smiles': 'Substructure SMILES',
         'sub_score': 'Attention Weight'

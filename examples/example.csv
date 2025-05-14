@@ -1,3 +1,3 @@
 smiles,dose
-Clc1cccc(Cl)c1NC1=NCCN1,0.1
-NCC(CC(=O)O)c1ccc(Cl)cc1,10
+C[C@]12C[C@H](c3ccc(S(C)(=O)=O)cc3)C3=C4CCC(=O)C=C4CC[C@H]3[C@@H]1CC[C@@]2(O)C(F)(F)C(F)(F)F,2
+C[C@]12C[C@H](c3ccc(S(C)(=O)=O)cc3)C3=C4CCC(=O)C=C4CC[C@H]3[C@@H]1CC[C@@]2(O)C(F)(F)C(F)(F)F,4

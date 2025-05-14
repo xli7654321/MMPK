@@ -21,13 +21,19 @@ MMPK can predict the following eight human oral pharmacokinetic parameters:
 
 ## Environment Setup
 
-Download the repository and create the environment.
+Download the repository and create the environment:
 
 ```bash
 git clone https://github.com/xli7654321/MMPK.git
 cd ./MMPK
 conda env create -f environment.yml
 conda activate mmpk
+```
+
+Install PyTorch (with CUDA 11.8 support) after activating the environment:
+
+```bash
+pip install torch --index-url https://download.pytorch.org/whl/cu118
 ```
 
 ## Quick Start
@@ -86,6 +92,8 @@ Do you want to standardize SMILES? [y/n] (default: y):
 
 After input is confirmed, the script will summarize the compounds and doses, then begin prediction.
 
+> **Note:** Here, the substructure attention weights are **independent of dose**.
+
 ### Reproduce the results of MMPK
 
 First, download the modeling datasets from [Zenodo Link]() and put them into `data` folder. Next, split the dataset in `data/approved` into training, validation, and test sets.
@@ -120,8 +128,6 @@ python test.py --checkpoints_folder mmpk
 ```
 
 This script will load all 10 trained MMPK models and generate averaged predictions for the compounds. The predicted values of each PK parameter for each compound and the overall metrics will be saved under the `results/investigational/` and `results/2024/` directories, respectively.
-
----
 
 ## License
 
