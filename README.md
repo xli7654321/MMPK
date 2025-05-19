@@ -2,9 +2,9 @@
 
 ![MMPK](mmpk.png)
 
-MMPK is an end-to-end multimodal deep learning model for human oral pharmacokinetic parameters prediction. It leverages multiple molecular representations learned from molecular graphs, substructure graphs, and SMILES sequences to comprehensively capture multi-scale molecular information.
+MMPK is an end-to-end multimodal deep learning model for **human oral pharmacokinetic parameters** prediction. It leverages multiple molecular representations learned from molecular graphs, substructure graphs, and SMILES sequences to comprehensively capture multi-scale molecular information. Multi-task learning and data imputation strategies are also employed to improve data efficiency and model robustness. Additionally, the substructure-aware cross-attention mechanism enhances the interpretability of MMPK by identifying chemically meaningful substructures that contribute to the predictions.
 
-**[MMPK Web Server]()**
+**[MMPK Web Server](https://lmmd.ecust.edu.cn/mmpk/)**
 
 ## Pharmacokinetic Parameters
 
@@ -40,7 +40,9 @@ pip install torch --index-url https://download.pytorch.org/whl/cu118
 
 ### Predict PK Parameters for New Compounds
 
-**You can download our trained models from [Zenodo Link]().** The trained 10-fold MMPK models should be stored in the `checkpoints/` directory, under a folder name specified by the `--checkpoints_folder` argument (e.g., `checkpoints/mmpk/`). 
+**👉 We strongly recommend using our [MMPK Web Server](https://lmmd.ecust.edu.cn/mmpk/) for new prediction.**
+
+You can download our trained models from [Zenodo Link](https://zenodo.org/records/15458834). The trained 10-fold MMPK models should be stored in the `checkpoints/` directory, under a folder name specified by the `--checkpoints_folder` argument (e.g., `checkpoints/mmpk/`). 
 
 Use the following command to start prediction:
 
@@ -96,7 +98,7 @@ After input is confirmed, the script will summarize the compounds and doses, the
 
 ### Reproduce the results of MMPK
 
-First, download the modeling datasets from [Zenodo Link]() and put them into `data` folder. Next, split the dataset in `data/approved` into training, validation, and test sets.
+We provide the raw datasets at [Zenodo Link](https://zenodo.org/records/15458834). After preprocessing (please following the steps described in the paper), the data for approved drugs should be placed in the `data/approved` directory. Then, you can execute the `split.py` script to split the dataset into training, validation, and test sets.
 
 ```bash
 python utils/split.py
