@@ -10,7 +10,7 @@ Due to the server policy of East China University of Science and Technology (华
 
 To ensure access for international users in different time zones, we provide an **[alternative link](https://mmpkserver.streamlit.app)** hosted on [Streamlit Community Cloud](https://streamlit.io/cloud), which offers identical functionality and content, except for the URL. According to Streamlit Community Cloud policy, if the app has no traffic for 12 hours, it will go to sleep to conserve resources. If you visit a sleeping app, simply click the **"Yes, get this app back up!"** button and wait a moment — the app will be available shortly.
 
-![a sleeping app](app-state-zzzz.png)
+<img src="app-state-zzzz.png" alt="a sleeping app" width="400"/>
 
 **We appreciate your understanding and are happy to provide further assistance if needed.**
 
