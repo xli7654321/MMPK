@@ -4,7 +4,15 @@
 
 MMPK is an end-to-end multimodal deep learning model for **human oral pharmacokinetic parameters** prediction. It leverages multiple molecular representations learned from molecular graphs, substructure graphs, and SMILES sequences to comprehensively capture multi-scale molecular information. Multi-task learning and data imputation strategies are also employed to improve data efficiency and model robustness. Additionally, the substructure-aware cross-attention mechanism enhances the interpretability of MMPK by identifying chemically meaningful substructures that contribute to the predictions.
 
-**[MMPK Web Server](https://lmmd.ecust.edu.cn/mmpk/)**
+## 🚧 Notice on Access Restrictions
+
+Due to the server policy of East China University of Science and Technology (华东理工大学), **[MMPK Web Server](https://lmmd.ecust.edu.cn/mmpk/)** is currently restricted to access only during **8:00 AM to 10:00 PM Beijing Time (UTC+8)**. Outside these hours, access is limited to on-campus networks only. We have been informed that this restriction will be completely lifted after July 8th, 2025.
+
+To ensure access for international users in different time zones, we provide an **[alternative link](https://mmpkserver.streamlit.app)** hosted on [Streamlit Community Cloud](https://streamlit.io/cloud), which offers identical functionality and content, except for the URL. According to Streamlit Community Cloud policy, if the app has no traffic for 12 hours, it will go to sleep to conserve resources. If you visit a sleeping app, simply click the **"Yes, get this app back up!"** button and wait a moment — the app will be available shortly.
+
+![a sleeping app](app-state-zzzz.png)
+
+**We appreciate your understanding and are happy to provide further assistance if needed.**
 
 ## Pharmacokinetic Parameters
 
