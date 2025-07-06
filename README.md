@@ -106,7 +106,7 @@ After input is confirmed, the script will summarize the compounds and doses, the
 
 ### Reproduce the results of MMPK
 
-We provide the raw datasets at [Zenodo Link](https://zenodo.org/records/15458834). After preprocessing (please following the steps described in the paper), the data for approved drugs should be placed in the `data/approved` directory. Then, you can execute the `split.py` script to split the dataset into training, validation, and test sets.
+We provide the raw datasets and preprocessed datasets at [Zenodo](https://zenodo.org/records/15458834). To reproduce the results, the data for approved drugs should be placed in the `data/approved` directory. Then, you can execute the `split.py` script to split the dataset into training, validation, and test sets.
 
 ```bash
 python utils/split.py
