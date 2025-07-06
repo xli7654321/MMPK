@@ -50,7 +50,7 @@ pip install torch --index-url https://download.pytorch.org/whl/cu118
 
 **👉 We strongly recommend using our [MMPK Web Server](https://lmmd.ecust.edu.cn/mmpk/) for new prediction.**
 
-You can download our trained models from [Zenodo Link](https://zenodo.org/records/15458834). The trained 10-fold MMPK models should be stored in the `checkpoints/` directory, under a folder name specified by the `--checkpoints_folder` argument (e.g., `checkpoints/mmpk/`). 
+You can download our trained models from [Zenodo](https://zenodo.org/records/15458834). The trained 10-fold MMPK models should be stored in the `checkpoints/` directory, under a folder name specified by the `--checkpoints_folder` argument (e.g., `checkpoints/mmpk/`). 
 
 Use the following command to start prediction:
 
